@@ -238,6 +238,17 @@ ocis-appdriver-office365:
       driver: "local"
     restart: always
 
+# pull ocis-hello
+ocis-hello:
+    image: owncloud/ocis-hello:${OCIS_HELLO_DOCKER_TAG:-latest}
+    networks:
+      ocis-net:
+    environment:
+      OCIS_LOG_LEVEL: ${OCIS_LOG_LEVEL:-error} # make oCIS less verbose
+    logging:
+      driver: "local"
+    restart: always
+
 volumes:
   certs:
   ocis-config:
